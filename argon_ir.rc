@@ -1,0 +1,9 @@
+service argon_ir_mapper /vendor/bin/argon_ir_mapper
+    class main
+    user root
+    group root input uhid
+    oneshot
+
+on boot
+    write /sys/class/rc/rc0/protocols "-lirc +nec"
+    start argon_ir_mapper
